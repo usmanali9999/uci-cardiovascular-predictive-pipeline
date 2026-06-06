@@ -1,4 +1,6 @@
-# Multi-Center Cardiovascular Risk Stratification & Data Mining Pipeline
+# Multi-Center UCI Cardiovascular Data Mining Pipeline
+
+
 
 An advanced data mining and predictive analytics framework engineered on the multi-center 920-row UCI Heart Disease dataset. This project systematically extracts structural insights from combined clinical cohorts, optimizing multi-class prediction mechanics while addressing the data missingness, anomalies, and imbalances inherent in cross-institutional medical registries.
 
