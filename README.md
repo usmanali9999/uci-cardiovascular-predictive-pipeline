@@ -1,8 +1,5 @@
 # Multi-Center UCI Cardiovascular Data Mining Pipeline
 
-[![Python 3.10+](https://shields.io)](https://python.org)
-[![Data Mining](https://shields.io)]()
-[![License: MIT](https://shields.io)](LICENSE)
 
 An advanced data mining and predictive analytics framework engineered on the multi-center 920-row UCI Heart Disease dataset. This project systematically extracts structural insights from combined clinical cohorts, optimizing multi-class prediction mechanics while addressing the data missingness, anomalies, and imbalances inherent in cross-institutional medical registries.
 
