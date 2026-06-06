@@ -65,3 +65,19 @@ The diagnostic target vector (`num`) is structured across a 5-tier classificatio
 
 The distribution drops sharply across the advanced severity tiers. This requires robust stratification strategies to maintain representative subsets across training and evaluation phases.
 
+## 🚀 Execution & Pipeline Implementation Strategy
+
+To guarantee statistical reliability, reproducibility, and production scalability, the project isolates workflows into independent steps.
+
+### Environment Setup & Deployment
+```bash
+# Clone the repository
+git clone https://github.com
+
+# Navigate into the project workspace
+cd uci-cardiovascular-predictive-pipeline
+
+# Install system dependencies
+pip install -r requirements.txt
+```
+
