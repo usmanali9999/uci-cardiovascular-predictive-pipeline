@@ -1,6 +1,8 @@
 # Multi-Center UCI Cardiovascular Data Mining Pipeline
 
-
+[![Python 3.10+](https://shields.io)](https://python.org)
+[![Data Mining](https://shields.io)]()
+[![License: MIT](https://shields.io)](LICENSE)
 
 An advanced data mining and predictive analytics framework engineered on the multi-center 920-row UCI Heart Disease dataset. This project systematically extracts structural insights from combined clinical cohorts, optimizing multi-class prediction mechanics while addressing the data missingness, anomalies, and imbalances inherent in cross-institutional medical registries.
 
@@ -65,6 +67,28 @@ The diagnostic target vector (`num`) is structured across a 5-tier classificatio
 
 The distribution drops sharply across the advanced severity tiers. This requires robust stratification strategies to maintain representative subsets across training and evaluation phases.
 
+---
+
+## 🔍 Data Mining Discoveries & Graphical Insights
+
+Analyzing the distributions, spreads, and interactions across your exploratory plots and notebooks reveals distinct clinical patterns directly extracted from your graphics:
+
+### 1. Structural Insight from Histograms
+* **Bimodal Cholesterol Drops:** The `chol` histogram shows a massive spike exactly at `0.0`. This visually confirms that missing data was masked as zero entries, contrasting with the true biological patient distribution which peaks normally around `220-250 mg/dl`.
+* **The Aging Bell Curve:** The `age` histogram displays a smooth, near-Gaussian distribution centered heavily between 50 and 65 years old, indicating the dataset primarily captures a mature demographic group.
+* **Truncated Heart Rate Thresholds:** The `thalch` (Maximum Heart Rate) histogram shows a clean left-skewed distribution. The curve drops sharply after 160 bpm, illustrating lower heart rate tolerances across high-risk cohorts.
+
+### 2. Variance & Outlier Insights from Boxplots
+* **Massive Cholesterol Tail:** The `chol` boxplot isolates a cluster of data points stretching far beyond the upper whisker, reaching all the way to `603.0 mg/dl`. This visually identifies extreme high-risk hypercholesterolemia profiles in specific individuals.
+* **ST Depression Compression:** The `oldpeak` boxplot demonstrates that the vast majority of patients rest tightly between `0.0` and `1.5` mm of ST depression. However, severe stress-test indicators break away completely as outliers, extending upwards to a critical `6.2` mm.
+* **Blood Pressure Variance:** The `trestbps` boxplot exhibits tight clustering around a median of `130 mm Hg`, but highlights several hypertensive extreme outliers flanking the upper bounds above `180 mm Hg`.
+
+### 3. Feature Co-Dependency from Scatter Plots
+* **The Ischemic Decay Trend:** Plotting `thalch` vs `age` reveals a clear downsloping linear trend. This visually maps the biological degeneration of cardiac threshold capacities as a patient's age increases.
+* **Peak Stress Clusters:** Scatter combinations comparing `oldpeak` against `thalch` show distinct grouping patterns. Patients with lower maximum heart rates consistently exhibit significantly deeper, riskier ST depressions (`oldpeak` > 3.0), mapping a strong co-dependent signature of advanced coronary heart disease.
+
+---
+
 ## 🚀 Execution & Pipeline Implementation Strategy
 
 To guarantee statistical reliability, reproducibility, and production scalability, the project isolates workflows into independent steps.
@@ -72,7 +96,7 @@ To guarantee statistical reliability, reproducibility, and production scalabilit
 ### Environment Setup & Deployment
 ```bash
 # Clone the repository
-git clone https://github.com/usmanali9999/uci-cardiovascular-predictive-pipeline.git
+git clone https://github.com
 
 # Navigate into the project workspace
 cd uci-cardiovascular-predictive-pipeline
@@ -81,3 +105,10 @@ cd uci-cardiovascular-predictive-pipeline
 pip install -r requirements.txt
 ```
 
+### Multi-Stage Processing Order
+1. **Target-Stratified Partitioning:** Isolation of a 20% holdout test environment using stratified splitting to preserve multiclass categorical ratios across data divisions.
+2. **Context-Aware Imputation:** Categorical items are mapped via localized mode propagation, while continuous missingness undergoes multivariate iterative reconstruction to retain co-dependency metrics.
+3. **Distribution Normalization:** Skewed quantitative features are mapped into Gaussian scales using non-linear transforms to remove outlier leverage.
+
+### Model Evaluation Metric Baseline
+Due to the medical risk profile of this application, optimizing solely for raw Accuracy is insufficient. The optimization loop evaluates models primarily on **Multiclass Recall (Sensitivity)** to prevent false negatives in higher-severity cardiovascular categories, cross-referenced with Macro-F1 scores to evaluate stability across all target classes.
