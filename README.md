@@ -72,7 +72,7 @@ To guarantee statistical reliability, reproducibility, and production scalabilit
 ### Environment Setup & Deployment
 ```bash
 # Clone the repository
-git clone https://github.com
+git clone https://github.com/usmanali9999/uci-cardiovascular-predictive-pipeline.git
 
 # Navigate into the project workspace
 cd uci-cardiovascular-predictive-pipeline
